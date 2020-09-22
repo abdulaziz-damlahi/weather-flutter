@@ -32,12 +32,14 @@ class _LoadingScreenState extends State<LoadingScreen> {
     longtude = location.longtude;
 
     Networtkhelper networkhelper = Networtkhelper(
-        'https://api.openweathermap.org/data/2.5/onecall?lat=$latitude&lon=$longtude&exclude=hourly&appid=$apikety');
+        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longtude&appid=$apikety&units=metric');
 
     var weatherdata = await networkhelper.getData();
 
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return LocationScreen();
+      return LocationScreen(
+        locationweeather: weatherdata,
+      );
     }));
   }
 
