@@ -74,3 +74,7 @@ class _LocationScreenState extends State<LocationScreen> {
     );
   }
 }
+
+double temp = decodedata['current']['temp'];
+String cond = decodedata['current']['weather'][0]['description'];
+String city = decodedata['timezone'];
